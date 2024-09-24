@@ -1,0 +1,84 @@
+{
+  "C:\\Users\\linas\\OneDrive\\Skrivbord\\Meddelande-app-shui": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.0",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "default-aws-credential-resolver": "<REDACTED>"
+    },
+    "composeServiceName": null,
+    "servicePath": "C:\\Users\\linas\\OneDrive\\Skrivbord\\Meddelande-app-shui",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "my-serverless-service",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs14.x",
+        "stage": "dev",
+        "region": "us-east-1",
+        "versionFunctions": true
+      },
+      "functions": {
+        "myLambdaFunction": {
+          "handler": "lambda/messageApi.handler",
+          "events": [
+            {
+              "http": {
+                "path": "my-path",
+                "method": "get"
+              }
+            }
+          ],
+          "name": "my-serverless-service-dev-myLambdaFunction"
+        }
+      }
+    },
+    "serviceRawFile": "service: my-serverless-service # Namnet på din tjänst\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs14.x # Ange runtime för din Lambda-funktion\r\n\r\nfunctions:\r\n  myLambdaFunction: # Namn på din funktion\r\n    handler: lambda/messageApi.handler # Filvägen till din Lambda-funktion\r\n    events:\r\n      - http:\r\n          path: my-path # API Gateway endpoint\r\n          method: get # HTTP-metod\r\n",
+    "command": [
+      "deploy",
+      "function"
+    ],
+    "options": {
+      "function": "messageApi"
+    },
+    "error": {
+      "message": "Function \"messageApi\" doesn't exist in this Service",
+      "stack": "ServerlessError2: Function \"messageApi\" doesn't exist in this Service\n    at Service.getFunction (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:913:12903)\n    at AwsDeployFunction.checkIfFunctionExists (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:903:61090)\n    at deploy:function:initialize (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:903:60239)\n    at async PluginManager.runHooks (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:912:9311)\n    at async PluginManager.invoke (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:912:10082)\n    at async PluginManager.run (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:912:10813)\n    at async Serverless.run (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:919:10612)\n    at async runFramework (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:942:2670)\n    at async route (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:968:14018)\n    at async Object.run2 [as run] (file:///C:/Users/linas/.serverless/releases/4.4.0/package/dist/sf-core.js:968:14419)",
+      "code": "FUNCTION_MISSING_IN_SERVICE"
+    },
+    "params": {},
+    "machineId": "4ae3e40f6d4be26e4c968e53675a4668",
+    "stage": "dev",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "3fdaada6-8636-4a45-bd2f-2b18418feb2d",
+    "orgName": "pesilian",
+    "userId": "x29YlVSHh1z7hyQlZ3",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "pesilian",
+    "subscription": null,
+    "userEmail": "linasignell@live.se",
+    "serviceProviderAwsRegion": "us-east-1",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "977099030879",
+    "projectType": "traditional",
+    "versionSf": "4.4.0",
+    "serviceProviderAwsCfStackName": "my-serverless-service-dev",
+    "serviceUniqueId": null,
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:977099030879:stack/my-serverless-service-dev/9973fde0-7a76-11ef-8d00-0affc7968caf",
+    "serviceProviderAwsCfStackCreated": "2024-09-24T13:12:07.236Z",
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": "DELETE_IN_PROGRESS",
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

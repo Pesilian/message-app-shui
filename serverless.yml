@@ -1,0 +1,13 @@
+service: my-serverless-service # Namnet på din tjänst
+
+provider:
+  name: aws
+  runtime: nodejs14.x # Ange runtime för din Lambda-funktion
+
+functions:
+  myLambdaFunction: # Namn på din funktion
+    handler: lambda/messageApi.handler # Filvägen till din Lambda-funktion
+    events:
+      - http:
+          path: my-path # API Gateway endpoint
+          method: get # HTTP-metod
