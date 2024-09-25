@@ -1,13 +1,37 @@
-service: my-serverless-service # Namnet på din tjänst
+service: my-serverless-service
 
 provider:
   name: aws
-  runtime: nodejs14.x # Ange runtime för din Lambda-funktion
+  runtime: nodejs20.x
 
 functions:
-  myLambdaFunction: # Namn på din funktion
-    handler: lambda/messageApi.handler # Filvägen till din Lambda-funktion
+  postMessage:
+    handler: lambda/postMessage.handler
     events:
       - http:
-          path: my-path # API Gateway endpoint
-          method: get # HTTP-metod
+          path: post-message
+          method: post
+          cors: true
+
+  getMessages:
+    handler: lambda/getMessages.handler
+    events:
+      - http:
+          path: get-messages
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+  editMessages:
+    handler: lambda/editMessages.handler
+    events:
+      - http:
+          path: edit-message
+          method: put
+          cors: true

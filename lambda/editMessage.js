@@ -20,14 +20,14 @@ export const handler = async event => {
 
     const params = {
       TableName: 'Messages',
-      Key: { id: id }, // Uppdatera meddelandet baserat på dess id
+      Key: { id: id },
       UpdateExpression: 'SET  message = :text, updatedAt = :updatedAt',
       ExpressionAttributeValues: {
         ':userName': userName,
         ':text': text,
         ':updatedAt': updatedAt,
       },
-      ReturnValues: 'ALL_NEW', // Returnera det uppdaterade objektet
+      ReturnValues: 'ALL_NEW',
     };
 
     const result = await dynamoDb.send(new UpdateCommand(params));
