@@ -1,11 +1,15 @@
 import React from 'react';
 
-const messageForm = () => {
+const MessageForm = () => {
   return (
     <div>
-      <h1>Shui Messages</h1>
+      <form>
+        <input type="text"></input>
+        <input type="text"></input>
+        <input type="submit"></input>
+      </form>
     </div>
   );
 };
 
-export default messageForm;
+export default MessageForm;
