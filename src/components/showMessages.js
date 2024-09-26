@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/showMessages.css';
 
-const MyComponent = () => {
+const ShowMessages = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -28,35 +29,22 @@ const MyComponent = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Messages:</h1>
+    <div class="messagescontainer">
       {messages.length > 0 ? (
         <ul>
           {messages.map((messageObj, index) => (
-            <li key={index}>
-              <strong>{messageObj.userName}:</strong> {messageObj.message}{' '}
-              <br />
-              <small>Created at: {messageObj.createdAt}</small>
+            <li class="messagecontainer" key={index}>
+              <p class="username">{messageObj.userName}:</p>{' '}
+              <p class="message">{messageObj.message} </p>
+              <p class="date">Created at: {messageObj.createdAt}</p>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No messages found.</p>
+        <p class="errormessage">No messages found.</p>
       )}
     </div>
   );
 };
 
-export default MyComponent;
-
-// import React from 'react';
-
-// const NewMessageBtn = () => {
-//   return (
-//     <div>
-//       <button>New Message</button>
-//     </div>
-//   );
-// };
-
-// export default NewMessageBtn;
+export default ShowMessages;

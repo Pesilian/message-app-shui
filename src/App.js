@@ -1,6 +1,7 @@
 import Header from './components/header';
-import MessageForm from './components/postmessage';
-import MyComponent from './components/newMessageBtn';
+import MessageForm from './components/messageForm';
+import ShowMessages from './components/showMessages';
+import UpdateMessageOverlay from './components/editMessage';
 import './App.css';
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <div className="App">
       <Header />
       <MessageForm />
-      <MyComponent />
+      <ShowMessages />
+      <UpdateMessageOverlay />
     </div>
   );
 }
