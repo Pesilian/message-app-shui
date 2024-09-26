@@ -29,19 +29,21 @@ const ShowMessages = () => {
   }, []);
 
   return (
-    <div class="messagescontainer">
+    <div className="container">
       {messages.length > 0 ? (
-        <ul>
+        <ul className="listcont">
           {messages.map((messageObj, index) => (
-            <li class="messagecontainer" key={index}>
-              <p class="username">{messageObj.userName}:</p>{' '}
-              <p class="message">{messageObj.message} </p>
-              <p class="date">Created at: {messageObj.createdAt}</p>
+            <li key={index}>
+              <div className="messagecontainer">
+                <p className="username">{messageObj.userName}:</p>{' '}
+                <p className="message">{messageObj.message} </p>
+                <p className="date">Created at: {messageObj.createdAt}</p>
+              </div>
             </li>
           ))}
         </ul>
       ) : (
-        <p class="errormessage">No messages found.</p>
+        <p className="errormessage">No messages found.</p>
       )}
     </div>
   );

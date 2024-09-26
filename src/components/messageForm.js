@@ -40,8 +40,9 @@ const MessageForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <input
+        className="textinput"
         type="text"
         value={userName}
         onChange={e => setUserName(e.target.value)}
@@ -49,13 +50,16 @@ const MessageForm = () => {
         required
       />
       <input
+        className="textinput"
         type="text"
         value={text}
         onChange={e => setText(e.target.value)}
         placeholder="Your message"
         required
       />
-      <button type="submit">Post Message</button>
+      <button className="submitbtn" type="submit">
+        Post Message
+      </button>
     </form>
   );
 };

@@ -1,6 +1,15 @@
 service: my-serverless-service
 
 provider:
+  environment:
+    DYNAMODB_TABLE: Messages
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'dynamodb:PutItem'
+        - 'dynamodb:GetItem'
+        - 'dynamodb:UpdateItem'
+      Resource: 'arn:aws:dynamodb:eu-north-1:977099030879:table/Messages'
   name: aws
   runtime: nodejs20.x
 
@@ -11,7 +20,15 @@ functions:
       - http:
           path: post-message
           method: post
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
 
   getMessages:
     handler: lambda/getMessages.handler
@@ -34,4 +51,12 @@ functions:
       - http:
           path: edit-message
           method: put
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
