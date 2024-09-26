@@ -1,6 +1,10 @@
 service: my-serverless-service
 
 provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: default
+  region: eu-north-1
   environment:
     DYNAMODB_TABLE: Messages
   iamRoleStatements:
@@ -9,9 +13,7 @@ provider:
         - 'dynamodb:PutItem'
         - 'dynamodb:GetItem'
         - 'dynamodb:UpdateItem'
-      Resource: 'arn:aws:dynamodb:eu-north-1:977099030879:table/Messages'
-  name: aws
-  runtime: nodejs20.x
+      Resource: 'arn:aws:dynamodb:eu-west-1:977099030879:table/Messages' # Ändrad region här
 
 functions:
   postMessage:
@@ -36,21 +38,6 @@ functions:
       - http:
           path: get-messages
           method: get
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-  editMessages:
-    handler: lambda/editMessages.handler
-    events:
-      - http:
-          path: edit-message
-          method: put
           cors:
             origin: '*'
             headers:
